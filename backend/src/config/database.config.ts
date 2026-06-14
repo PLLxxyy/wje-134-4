@@ -3,6 +3,8 @@ import { AuditLog } from '../models/auditLog.entity';
 import { ChangeOrder } from '../models/changeOrder.entity';
 import { CostItem } from '../models/costItem.entity';
 import { CostReport } from '../models/costReport.entity';
+import { Material } from '../models/material.entity';
+import { MaterialRequisition } from '../models/materialRequisition.entity';
 import { ProjectBudget } from '../models/budget.entity';
 import { Role } from '../models/role.entity';
 
@@ -14,7 +16,7 @@ export function databaseConfig(): TypeOrmModuleOptions {
     username: process.env.DB_USER ?? 'cost_control',
     password: process.env.DB_PASSWORD ?? 'cost_control_password',
     database: process.env.DB_NAME ?? 'cost_control',
-    entities: [ProjectBudget, CostItem, ChangeOrder, CostReport, AuditLog, Role],
+    entities: [ProjectBudget, CostItem, ChangeOrder, CostReport, AuditLog, Role, Material, MaterialRequisition],
     synchronize: process.env.TYPEORM_SYNCHRONIZE !== 'false',
     logging: process.env.TYPEORM_LOGGING === 'true'
   };

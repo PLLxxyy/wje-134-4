@@ -8,6 +8,7 @@ import {
   UpdateDateColumn
 } from 'typeorm';
 import { ProjectBudget } from './budget.entity';
+import { MaterialRequisition } from './materialRequisition.entity';
 import { CostCategory, CostItemStatus } from '../types/enums';
 
 @Entity({ name: 'cost_items' })
@@ -45,6 +46,10 @@ export class CostItem {
 
   @Column({ name: 'material_usage_id', type: 'uuid', nullable: true })
   materialUsageId?: string | null;
+
+  @ManyToOne(() => MaterialRequisition, { nullable: true })
+  @JoinColumn({ name: 'material_usage_id' })
+  materialUsage?: MaterialRequisition | null;
 
   @Column({ name: 'labor_time_record_id', type: 'uuid', nullable: true })
   laborTimeRecordId?: string | null;

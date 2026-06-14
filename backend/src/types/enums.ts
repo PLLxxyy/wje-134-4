@@ -60,6 +60,21 @@ export enum ReportType {
   Custom = 'Custom'
 }
 
+export enum MaterialUnit {
+  Piece = 'Piece',
+  Ton = 'Ton',
+  CubicMeter = 'CubicMeter',
+  SquareMeter = 'SquareMeter',
+  Kilogram = 'Kilogram',
+  Meter = 'Meter'
+}
+
+export enum MaterialRequisitionStatus {
+  Pending = 'Pending',
+  Approved = 'Approved',
+  Rejected = 'Rejected'
+}
+
 export enum AuditAction {
   BudgetCreated = 'BudgetCreated',
   BudgetSubmitted = 'BudgetSubmitted',
@@ -73,5 +88,10 @@ export enum AuditAction {
   ChangeOrderApproved = 'ChangeOrderApproved',
   ChangeOrderRejected = 'ChangeOrderRejected',
   ChangeOrderCancelled = 'ChangeOrderCancelled',
-  ReportGenerated = 'ReportGenerated'
+  ReportGenerated = 'ReportGenerated',
+  MaterialCreated = 'MaterialCreated',
+  MaterialStockedIn = 'MaterialStockedIn',
+  MaterialRequisitionCreated = 'MaterialRequisitionCreated',
+  MaterialRequisitionApproved = 'MaterialRequisitionApproved',
+  MaterialRequisitionRejected = 'MaterialRequisitionRejected'
 }

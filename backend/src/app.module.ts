@@ -13,11 +13,14 @@ import { BudgetController } from './controllers/budget.controller';
 import { ChangeOrderController } from './controllers/changeOrder.controller';
 import { CostItemController } from './controllers/costItem.controller';
 import { HealthController } from './controllers/health.controller';
+import { MaterialController } from './controllers/material.controller';
 import { ReportController } from './controllers/report.controller';
 import { AuditLog } from './models/auditLog.entity';
 import { ChangeOrder } from './models/changeOrder.entity';
 import { CostItem } from './models/costItem.entity';
 import { CostReport } from './models/costReport.entity';
+import { Material } from './models/material.entity';
+import { MaterialRequisition } from './models/materialRequisition.entity';
 import { ProjectBudget } from './models/budget.entity';
 import { Role } from './models/role.entity';
 import { AnalyticsService } from './services/analytics.service';
@@ -25,6 +28,7 @@ import { AuditLogService } from './services/auditLog.service';
 import { BudgetService } from './services/budget.service';
 import { ChangeOrderService } from './services/changeOrder.service';
 import { CostItemService } from './services/costItem.service';
+import { MaterialService } from './services/material.service';
 import { RedisService } from './services/redis.service';
 import { ReportService } from './services/report.service';
 
@@ -38,15 +42,16 @@ import { ReportService } from './services/report.service';
     TypeOrmModule.forRootAsync({
       useFactory: databaseConfig
     }),
-    TypeOrmModule.forFeature([ProjectBudget, CostItem, ChangeOrder, CostReport, AuditLog, Role])
+    TypeOrmModule.forFeature([ProjectBudget, CostItem, ChangeOrder, CostReport, AuditLog, Role, Material, MaterialRequisition])
   ],
-  controllers: [HealthController, BudgetController, CostItemController, ChangeOrderController, ReportController],
+  controllers: [HealthController, BudgetController, CostItemController, ChangeOrderController, MaterialController, ReportController],
   providers: [
     AnalyticsService,
     AuditLogService,
     BudgetService,
     ChangeOrderService,
     CostItemService,
+    MaterialService,
     RedisService,
     RbacMiddleware,
     ReportService
